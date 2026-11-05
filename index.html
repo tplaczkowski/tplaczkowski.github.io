@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crafted by Tom — Career Coaching for STEM &amp; Aerospace</title>
+  <meta name="description" content="Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.">
+  <meta property="og:title" content="Crafted by Tom — Career Coaching for STEM &amp; Aerospace">
+  <meta property="og:description" content="Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Crafted by Tom">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1220'/%3E%3Cellipse cx='32' cy='34' rx='24' ry='9' fill='none' stroke='%233dd6c6' stroke-width='3' transform='rotate(-25 32 34)'/%3E%3Cpath d='M32 12c6 6 7 16 4 24h-8c-3-8-2-18 4-24z' fill='%23fff'/%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Crafted by Tom — Career Coaching for STEM &amp; Aerospace">
+  <meta name="twitter:description" content="Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.">
+  <style>
+    :root {
+      --navy: #0b1220;
+      --navy-2: #121a2b;
+      --navy-3: #1a2438;
+      --border: #2a3650;
+      --text: #f4f7fb;
+      --muted: #a8b3c7;
+      --accent: #3dd6c6;
+      --accent-dark: #2bb8a9;
+      --white: #ffffff;
+      --card: #151e31;
+      --best: #f5c542;
+      --radius: 16px;
+      --shadow: 0 12px 40px rgba(0,0,0,.35);
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--navy);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    header {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11,18,32,.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .92rem;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .hero {
+      padding: 4.5rem 0 3rem;
+      background:
+        radial-gradient(900px 400px at 80% -10%, rgba(61,214,198,.18), transparent 60%),
+        radial-gradient(700px 320px at 10% 20%, rgba(61,214,198,.08), transparent 55%);
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 5vw, 3.25rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: .85rem;
+    }
+    .hero h1 span { color: var(--accent); }
+    .tagline {
+      font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+      color: var(--muted);
+      max-width: 42rem;
+      margin-bottom: 1.75rem;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      padding: .85rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); text-decoration: none; }
+    .btn-primary {
+      background: var(--accent);
+      color: #062a26;
+    }
+    .btn-primary:hover { background: var(--accent-dark); color: #062a26; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--white); }
+    .btn-buy {
+      width: 100%;
+      margin-top: auto;
+      background: var(--accent);
+      color: #062a26;
+      font-size: 1.05rem;
+      padding: 1rem 1.25rem;
+      border-radius: 12px;
+    }
+    .btn-buy:hover { background: var(--accent-dark); color: #062a26; }
+    section { padding: 3.25rem 0; }
+    .section-title {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      letter-spacing: -.01em;
+      margin-bottom: .35rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      margin-bottom: 1.75rem;
+      max-width: 40rem;
+    }
+    .packages {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    @media (min-width: 700px) {
+      .packages { grid-template-columns: 1fr 1fr; }
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.35rem 1.35rem;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      min-height: 100%;
+    }
+    .card.best {
+      border-color: rgba(245,197,66,.55);
+      box-shadow: 0 0 0 1px rgba(245,197,66,.25), var(--shadow);
+    }
+    .badge {
+      position: absolute;
+      top: -0.7rem;
+      right: 1rem;
+      background: var(--best);
+      color: #1a1400;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      padding: .35rem .65rem;
+      border-radius: 999px;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      line-height: 1.3;
+      padding-right: 4.5rem;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -.02em;
+      color: var(--white);
+    }
+    .price small {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-left: .25rem;
+    }
+    .note {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: -.35rem;
+    }
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: .55rem;
+      color: var(--muted);
+      font-size: .95rem;
+      flex: 1;
+    }
+    .card ul li {
+      padding-left: 1.35rem;
+      position: relative;
+    }
+    .card ul li::before {
+      content: "";
+      width: .55rem;
+      height: .55rem;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: 0;
+      top: .5rem;
+    }
+    .intake-note {
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: .95rem;
+      padding: .9rem 1rem;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
+    }
+    .steps {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 800px) {
+      .steps { grid-template-columns: repeat(3, 1fr); }
+    }
+    .step {
+      background: var(--navy-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      background: rgba(61,214,198,.15);
+      color: var(--accent);
+      font-weight: 800;
+      margin-bottom: .75rem;
+    }
+    .step h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+    .step p { color: var(--muted); font-size: .95rem; }
+    .panel {
+      background: linear-gradient(160deg, var(--navy-3), var(--navy-2));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .panel p { color: var(--muted); margin-top: .5rem; }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 0 2.5rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    footer strong { color: var(--text); }
+
+    .card,.step,.btn,.ico{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease}
+    .card:hover{transform:translateY(-4px);border-color:rgba(61,214,198,.55);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+    .card.best:hover{border-color:rgba(245,197,66,.8)}
+    .step:hover{transform:translateY(-3px);border-color:rgba(61,214,198,.5)}
+    .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(61,214,198,.12);border:1px solid rgba(61,214,198,.3);color:var(--accent)}
+    .ico svg{width:28px;height:28px}
+    .card:hover .ico{background:rgba(61,214,198,.2);transform:rotate(-4deg) scale(1.05)}
+    .step-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
+    .step-head .step-num{margin:0;position:absolute;top:-.55rem;left:-.55rem;width:1.6rem;height:1.6rem;font-size:.85rem;background:var(--accent);color:#062a26}
+    .step-head .ico{position:relative}
+    .hero-grid{display:grid;gap:2rem;align-items:center}
+    @media (min-width:860px){.hero-grid{grid-template-columns:1.25fr 1fr}}
+    .hero-art{width:100%;max-width:440px;margin-inline:auto;display:block}
+    .hero-art .orb{animation:spin 60s linear infinite;transform-origin:220px 200px}
+    .hero-art .tw{animation:tw 3s ease-in-out infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes tw{50%{opacity:.25}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+    .hdr-buy{display:none;padding:.5rem 1rem;font-size:.9rem}
+    @media (max-width:640px){
+      header{padding:.7rem 0}
+      .nav-links{display:none}
+      .hdr-buy{display:inline-flex}
+      .hero{padding:2.5rem 0 1.5rem}
+      .hero-art{max-width:300px}
+      .card h3{padding-right:0}
+      .card.best h3{padding-right:5.5rem}
+      section{padding:2.5rem 0}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <a class="logo" href="#">Crafted by <span>Tom</span></a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#packages">Packages</a>
+        <a href="#how">How it works</a>
+        <a href="#more">More</a>
+        <a href="#questions">Questions</a>
+      </nav>
+      <a class="btn btn-primary hdr-buy" href="#packages">Buy</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+        <h1>Crafted by <span>Tom</span>.</h1>
+        <p class="tagline">Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#packages">See packages</a>
+          <a class="btn btn-ghost" href="#questions">Ask a question</a>
+        </div>
+        </div>
+        <svg class="hero-art" viewBox="0 0 440 400" role="img" aria-label="Rocket on an orbital trajectory" fill="none">
+  <defs><radialGradient id="pl" cx="40%" cy="35%"><stop offset="0" stop-color="#1f3a5c"/><stop offset="1" stop-color="#0e1a2e"/></radialGradient></defs>
+  <g fill="#fff"><circle class="tw" cx="40" cy="50" r="1.6"/><circle cx="380" cy="40" r="1.2"/><circle class="tw" cx="410" cy="300" r="1.5" style="animation-delay:1s"/><circle cx="60" cy="330" r="1.2"/><circle class="tw" cx="300" cy="20" r="1.4" style="animation-delay:2s"/><circle cx="120" cy="140" r="1"/><circle cx="350" cy="370" r="1.1"/><circle class="tw" cx="20" cy="210" r="1.3" style="animation-delay:.5s"/></g>
+  <circle cx="220" cy="200" r="70" fill="url(#pl)" stroke="#2a3650" stroke-width="2"/>
+  <path d="M160 180c30 10 80 8 120-6M155 215c40 12 90 10 128-6" stroke="#2a3650" stroke-width="2"/>
+  <g class="orb"><ellipse cx="220" cy="200" rx="185" ry="70" transform="rotate(-20 220 200)" stroke="#3dd6c6" stroke-opacity=".55" stroke-width="1.5" stroke-dasharray="4 7"/>
+  <g transform="rotate(-20 220 200)"><circle cx="35" cy="200" r="5" fill="#3dd6c6"/></g></g>
+  <ellipse cx="220" cy="200" rx="130" ry="150" transform="rotate(35 220 200)" stroke="#a8b3c7" stroke-opacity=".3" stroke-width="1.2"/>
+  <path d="M70 360C140 300 230 230 330 90" stroke="#3dd6c6" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 9"/>
+  <g transform="translate(330 90) rotate(35)" stroke="#fff" stroke-width="2.2" stroke-linejoin="round">
+    <path d="M0-34c10 10 13 26 9 44H-9c-4-18-1-34 9-44z" fill="#0b1220"/>
+    <circle cx="0" cy="-12" r="4.5" stroke="#3dd6c6"/>
+    <path d="M-9 4l-9 12 9-2M9 4l9 12-9-2" fill="#0b1220"/>
+    <path d="M-5 14q5 14 5 18q0-4 5-18" stroke="#f5c542"/>
+  </g>
+</svg>
+      </div>
+    </section>
+
+    <section id="packages">
+      <div class="wrap">
+        <h2 class="section-title">Packages</h2>
+        <p class="section-sub">Clear deliverables. Stripe checkout. Tom reviews personally.</p>
+        <div class="packages">
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+            <h3>Resume Review</h3>
+            <div class="price">$25 <small>founding price</small></div>
+            <p class="note">Opening price for now — may go up.</p>
+            <ul>
+              <li>4-page report on how your resume reads to a screener</li>
+              <li>Match score against target roles</li>
+              <li>Marked-up Word copy</li>
+              <li>Swap-in bullets</li>
+              <li>10–15 matching openings</li>
+            </ul>
+            <a class="btn btn-buy" href="https://buy.stripe.com/28EcN490GewAfu98G333W04" target="_blank" rel="noopener noreferrer">Buy Resume Review</a>
+          </article>
+
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="12" cy="13" r="1.8"/><path d="M12 7.2v4M10.6 14.3l-4 2.4M13.4 14.3l4 2.4M7.2 18h9.6"/></svg></div>
+            <h3>LinkedIn and Networking Kit</h3>
+            <div class="price">$79</div>
+            <ul>
+              <li>LinkedIn rewrite aimed at target roles</li>
+              <li>15 real people on target teams</li>
+              <li>A personal first message for each</li>
+              <li>Follow-up templates</li>
+              <li>One-time — no ongoing support</li>
+            </ul>
+            <a class="btn btn-buy" href="https://buy.stripe.com/aFa14mgt82NS6XD09x33W03" target="_blank" rel="noopener noreferrer">Buy LinkedIn Kit</a>
+          </article>
+
+          <article class="card best">
+            <span class="badge">Best value</span>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg></div>
+            <h3>Full Application Package</h3>
+            <div class="price">$99</div>
+            <ul>
+              <li>Everything in the Resume Review</li>
+              <li>A cover letter built from a voice memo or story of yours</li>
+              <li>A LinkedIn rewrite</li>
+              <li>One round of revisions within 14 days</li>
+              <li>Delivered within 7 days</li>
+            </ul>
+            <a class="btn btn-buy" href="https://buy.stripe.com/6oUcN4fp4fAEfu96xV33W02" target="_blank" rel="noopener noreferrer">Buy Full Application Package</a>
+          </article>
+
+          <article class="card">
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="18" cy="17" r="4"/><circle cx="18" cy="17" r="1.3"/></svg></div>
+            <h3>Interview Sprint</h3>
+            <div class="price">$99</div>
+            <ul>
+              <li>Prep plan for each company you're interviewing with</li>
+              <li>Technical study guidance for your role</li>
+              <li>You do the homework and check in as you go</li>
+            </ul>
+            <a class="btn btn-buy" href="https://buy.stripe.com/00w28q6Sycos4Pv6xV33W05" target="_blank" rel="noopener noreferrer">Buy Interview Sprint</a>
+          </article>
+        </div>
+        <p class="intake-note">After you pay, you'll fill out a short intake form. Pick the package you bought.</p>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <h2 class="section-title">How it works</h2>
+        <p class="section-sub">Three steps from checkout to deliverables.</p>
+        <div class="steps">
+          <div class="step">
+            <div class="step-head"><div class="ico"><span class="step-num">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div></div>
+            <h3>Choose a package and pay</h3>
+            <p>Stripe checkout. Secure and one-time.</p>
+          </div>
+          <div class="step">
+            <div class="step-head"><div class="ico"><span class="step-num">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3M8.5 11l1.5 1.5 3-3M8.5 16h7"/></svg></div></div>
+            <h3>Fill out the intake form</h3>
+            <p>You land on it right after paying — resume + target roles.</p>
+          </div>
+          <div class="step">
+            <div class="step-head"><div class="ico"><span class="step-num">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 4 5 9 3 14H9C7 12 8 7 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9 17l-2 3M15 17l2 3M12 17v4"/></svg></div></div>
+            <h3>Get your deliverables</h3>
+            <p>Tom reviews personally.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="more">
+      <div class="wrap">
+        <div class="panel">
+          <h2 class="section-title">Looking for more?</h2>
+          <p>Limited 1:1 coaching for people who want hands-on help through the whole search. DM “COACHING”.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="questions">
+      <div class="wrap">
+        <h2 class="section-title">Questions?</h2>
+        <p class="section-sub">DM “RESUME” on Instagram or reach out on LinkedIn.</p>
+        <div class="links">
+          <a class="btn btn-primary" href="https://instagram.com/crafted.bytom" target="_blank" rel="noopener noreferrer">Instagram @crafted.bytom</a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/thomas-placzkowski" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>No guarantees.</strong> Every package is built to make your applications stronger; nobody can promise a job offer.</p>
+      <p style="margin-top:.75rem">© Crafted by Tom</p>
+    </div>
+  </footer>
+</body>
+</html>
