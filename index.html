@@ -9,443 +9,455 @@
   <meta property="og:description" content="Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Crafted by Tom">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1E3A'/%3E%3Cellipse cx='32' cy='34' rx='24' ry='9' fill='none' stroke='%23F6F1E7' stroke-width='3' transform='rotate(-25 32 34)'/%3E%3Cpath d='M32 12c6 6 7 16 4 24h-8c-3-8-2-18 4-24z' fill='%23F6F1E7'/%3E%3C/svg%3E">
-  <meta name="theme-color" content="#0F1E3A">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Crafted by Tom — Career Coaching for STEM &amp; Aerospace">
   <meta name="twitter:description" content="Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.">
+  <meta name="theme-color" content="#0B1426">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B1426'/%3E%3Cellipse cx='32' cy='34' rx='24' ry='9' fill='none' stroke='%23F4EDE0' stroke-width='3' transform='rotate(-25 32 34)'/%3E%3Cpath d='M32 12c6 6 7 16 4 24h-8c-3-8-2-18 4-24z' fill='%23F4EDE0'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --navy: #0F1E3A;
-      --navy-2: #1A2B4A;
-      --navy-3: #243656;
-      --cream: #F6F1E7;
-      --cream-2: #EFE8DA;
-      --cream-3: #E7DFCD;
-      --border: #C9BFA8;
-      --text: #0F1E3A;
-      --muted: #4A5A78;
-      --coral: #FF6B5A;
-      --coral-dark: #E85A4A;
-      --white: #ffffff;
-      --card: #FFFCF7;
-      --radius: 16px;
-      --shadow: 0 12px 40px rgba(15,30,58,.10);
-      --max: 1080px;
+    :root{
+      --bg:#0B1426; --bg-2:#101B33; --bg-3:#14213D;
+      --ink:#F4EDE0; --ink-2:rgba(244,237,224,.74); --ink-3:rgba(244,237,224,.56);
+      --glass:rgba(244,237,224,.055); --glass-2:rgba(244,237,224,.085);
+      --line:rgba(244,237,224,.13); --line-2:rgba(244,237,224,.22);
+      --coral:#FF6B5A; --coral-2:#FF8374;
+      --r:20px; --max:1200px;
+      --sans:"Inter",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      --serif:"Instrument Serif",ui-serif,Georgia,"Times New Roman",serif;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: var(--navy); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .wrap { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
-    header {
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border);
-      background: rgba(246,241,231,.92);
-      backdrop-filter: blur(8px);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: .02em;
-      color: var(--navy);
-      text-decoration: none;
-    }
-    .logo span { color: var(--navy-2); }
-    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .nav-links a {
-      color: var(--muted);
-      font-size: .92rem;
-      text-decoration: none;
-    }
-    .nav-links a:hover { color: var(--navy); }
-    .hero {
-      padding: 4.5rem 0 3rem;
-      background:
-        radial-gradient(900px 400px at 80% -10%, rgba(15,30,58,.08), transparent 60%),
-        radial-gradient(700px 320px at 10% 20%, rgba(15,30,58,.05), transparent 55%);
-    }
-    .hero h1 {
-      font-size: clamp(2.1rem, 5vw, 3.25rem);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: .85rem;
-      color: var(--navy);
-    }
-    .hero h1 span { color: var(--navy-2); }
-    .tagline {
-      font-size: clamp(1.05rem, 2.4vw, 1.25rem);
-      color: var(--muted);
-      max-width: 42rem;
-      margin-bottom: 1.75rem;
-    }
-    .cta-row { display: flex; flex-wrap: wrap; gap: .75rem; }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: .4rem;
-      padding: .85rem 1.25rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      text-decoration: none;
-      transition: transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
-    }
-    .btn:hover { transform: translateY(-1px); text-decoration: none; }
-    .btn-primary {
-      background: var(--navy);
-      color: var(--cream);
-    }
-    .btn-primary:hover { background: var(--navy-2); color: var(--cream); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--navy);
-      border-color: var(--border);
-    }
-    .btn-ghost:hover { border-color: var(--navy); color: var(--navy); background: rgba(15,30,58,.04); }
-    .btn-buy {
-      width: 100%;
-      margin-top: auto;
-      background: var(--coral);
-      color: var(--navy);
-      font-size: 1.05rem;
-      padding: 1rem 1.25rem;
-      border-radius: 12px;
-    }
-    .btn-buy:hover { background: var(--coral-dark); color: var(--navy); }
-    .hdr-buy {
-      background: var(--coral) !important;
-      color: var(--navy) !important;
-    }
-    .hdr-buy:hover { background: var(--coral-dark) !important; color: var(--navy) !important; }
-    section { padding: 3.25rem 0; }
-    .section-title {
-      font-size: clamp(1.5rem, 3.5vw, 2rem);
-      letter-spacing: -.01em;
-      margin-bottom: .35rem;
-      color: var(--navy);
-    }
-    .section-sub {
-      color: var(--muted);
-      margin-bottom: 1.75rem;
-      max-width: 40rem;
-    }
-    .packages {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-    @media (min-width: 700px) {
-      .packages { grid-template-columns: 1fr 1fr; }
-    }
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem 1.35rem 1.35rem;
-      display: flex;
-      flex-direction: column;
-      gap: .85rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      min-height: 100%;
-    }
-    .card.best {
-      border-color: var(--navy-2);
-      box-shadow: 0 0 0 1px rgba(15,30,58,.18), var(--shadow);
-    }
-    .badge {
-      position: absolute;
-      top: -0.7rem;
-      right: 1rem;
-      background: var(--navy);
-      color: var(--cream);
-      font-size: .72rem;
-      font-weight: 800;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      padding: .35rem .65rem;
-      border-radius: 999px;
-    }
-    .card h3 {
-      font-size: 1.2rem;
-      line-height: 1.3;
-      padding-right: 4.5rem;
-      color: var(--navy);
-    }
-    .price {
-      font-size: 2rem;
-      font-weight: 800;
-      letter-spacing: -.02em;
-      color: var(--navy);
-    }
-    .price small {
-      font-size: .9rem;
-      font-weight: 600;
-      color: var(--muted);
-      margin-left: .25rem;
-    }
-    .note {
-      font-size: .85rem;
-      color: var(--muted);
-      margin-top: -.35rem;
-    }
-    .card ul {
-      list-style: none;
-      display: grid;
-      gap: .55rem;
-      color: var(--muted);
-      font-size: .95rem;
-      flex: 1;
-    }
-    .card ul li {
-      padding-left: 1.35rem;
-      position: relative;
-    }
-    .card ul li::before {
-      content: "";
-      width: .55rem;
-      height: .55rem;
-      border-radius: 50%;
-      background: var(--navy);
-      position: absolute;
-      left: 0;
-      top: .5rem;
-    }
-    .intake-note {
-      margin-top: 1.25rem;
-      color: var(--muted);
-      font-size: .95rem;
-      padding: .9rem 1rem;
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      background: rgba(15,30,58,.03);
-    }
-    .steps {
-      display: grid;
-      gap: 1rem;
-    }
-    @media (min-width: 800px) {
-      .steps { grid-template-columns: repeat(3, 1fr); }
-    }
-    .step {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.25rem;
-    }
-    .step-num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 999px;
-      background: rgba(15,30,58,.08);
-      color: var(--navy);
-      font-weight: 800;
-      margin-bottom: .75rem;
-    }
-    .step h3 { font-size: 1.05rem; margin-bottom: .35rem; color: var(--navy); }
-    .step p { color: var(--muted); font-size: .95rem; }
-    .panel {
-      background: linear-gradient(160deg, var(--cream-2), var(--card));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
-    .panel p { color: var(--muted); margin-top: .5rem; }
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .75rem;
-      margin-top: 1rem;
-    }
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem 0 2.5rem;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-    footer strong { color: var(--navy); }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;background:var(--bg)}
+    body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(100% - 2.5rem,var(--max));margin-inline:auto}
 
-    .card,.step,.btn,.ico{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease,background .2s ease}
-    .card:hover{transform:translateY(-4px);border-color:rgba(15,30,58,.45);box-shadow:0 18px 50px rgba(15,30,58,.14)}
-    .card.best:hover{border-color:var(--navy)}
-    .step:hover{transform:translateY(-3px);border-color:rgba(15,30,58,.4)}
-    .ico{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:rgba(15,30,58,.06);border:1px solid rgba(15,30,58,.18);color:var(--navy)}
-    .ico svg{width:28px;height:28px}
-    .card:hover .ico{background:rgba(15,30,58,.1);transform:rotate(-4deg) scale(1.05)}
-    .step-head{display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem}
-    .step-head .step-num{margin:0;position:absolute;top:-.55rem;left:-.55rem;width:1.6rem;height:1.6rem;font-size:.85rem;background:var(--navy);color:var(--cream)}
-    .step-head .ico{position:relative}
-    .hero-grid{display:grid;gap:2rem;align-items:center}
-    @media (min-width:860px){.hero-grid{grid-template-columns:1.25fr 1fr}}
-    .hero-art{width:100%;max-width:440px;margin-inline:auto;display:block}
-    .hero-art .orb{animation:spin 60s linear infinite;transform-origin:220px 200px}
-    .hero-art .tw{animation:tw 3s ease-in-out infinite}
+    /* background: glow + grain + stars */
+    .sky{position:absolute;inset:0 0 auto 0;height:1100px;pointer-events:none;z-index:0;overflow:hidden}
+    .sky::before{content:"";position:absolute;inset:0;
+      background:
+        radial-gradient(60% 50% at 50% 0%, rgba(84,112,180,.38), transparent 70%),
+        radial-gradient(35% 30% at 72% 38%, rgba(255,107,90,.16), transparent 70%),
+        radial-gradient(40% 35% at 22% 45%, rgba(70,96,160,.26), transparent 70%),
+        linear-gradient(180deg,#14213D 0%, #0B1426 75%);
+      filter:blur(2px)}
+    .sky::after{content:"";position:absolute;inset:0;opacity:.09;mix-blend-mode:overlay;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .stars{position:absolute;inset:0;width:100%;height:100%}
+    .stars circle{fill:#F4EDE0}
+    .tw{animation:tw 4s ease-in-out infinite}
+    @keyframes tw{50%{opacity:.2}}
+    .horizon{position:absolute;left:50%;bottom:120px;width:1500px;height:600px;transform:translateX(-50%);border-radius:50%;
+      border-top:1px solid rgba(244,237,224,.18);
+      box-shadow:0 -30px 120px -40px rgba(120,150,220,.35) inset}
+
+    /* nav */
+    header{position:sticky;top:0;z-index:50;padding:1rem 0}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+      padding:.5rem .5rem .5rem 1.1rem;border-radius:999px;
+      background:rgba(16,27,51,.55);border:1px solid var(--line);
+      backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);
+      box-shadow:0 10px 40px rgba(0,0,0,.25), inset 0 1px 0 rgba(244,237,224,.06);
+      max-width:860px;margin-inline:auto}
+    .logo{display:flex;align-items:center;gap:.55rem;font-weight:700;letter-spacing:-.01em;font-size:1rem}
+    .logo-mark{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--glass-2);border:1px solid var(--line)}
+    .logo em{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.15rem}
+    .nav-links{display:flex;gap:.25rem}
+    .nav-links a{color:var(--ink-2);font-size:.9rem;font-weight:500;padding:.45rem .85rem;border-radius:999px;transition:background .2s,color .2s}
+    .nav-links a:hover{color:var(--ink);background:var(--glass-2)}
+
+    /* buttons */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.4rem;border-radius:999px;font-weight:600;font-size:.98rem;border:1px solid transparent;transition:transform .18s ease,background .18s ease,box-shadow .18s ease,border-color .18s ease;white-space:nowrap}
+    .btn:hover{transform:translateY(-1px)}
+    .btn svg{width:16px;height:16px}
+    .btn-coral{background:var(--coral);color:#0B1426;box-shadow:0 8px 28px -6px rgba(255,107,90,.55), inset 0 1px 0 rgba(255,255,255,.35)}
+    .btn-coral:hover{background:var(--coral-2);box-shadow:0 12px 34px -6px rgba(255,107,90,.7), inset 0 1px 0 rgba(255,255,255,.35)}
+    .btn-glass{background:var(--glass);color:var(--ink);border-color:var(--line-2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+    .btn-glass:hover{background:var(--glass-2);border-color:rgba(244,237,224,.35)}
+    .btn-sm{padding:.55rem 1.05rem;font-size:.88rem}
+    a:focus-visible,.btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+    /* hero */
+    .hero{position:relative;z-index:1;padding:3rem 0 2rem;text-align:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:.55rem;padding:.38rem .9rem .38rem .45rem;border-radius:999px;background:var(--glass);border:1px solid var(--line);font-size:.82rem;color:var(--ink-2);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .eyebrow b{font-weight:600;color:var(--ink);background:var(--glass-2);border:1px solid var(--line);border-radius:999px;padding:.08rem .55rem;font-size:.75rem}
+    .hero h1{font-size:clamp(3.2rem,10vw,7.4rem);line-height:.95;letter-spacing:-.055em;font-weight:700;margin:1.2rem auto 1.1rem;
+      background:linear-gradient(180deg,#FFFFFF 0%, #F4EDE0 55%, rgba(244,237,224,.72) 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero h1 .dot-end{margin-left:-.04em}
+    .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em;padding-right:.02em}
+    .tagline{font-size:clamp(1.02rem,2.2vw,1.2rem);color:var(--ink-2);max-width:40rem;margin:0 auto 2rem}
+    .cta-row{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+
+    .hero-stage{position:relative}
+    .side-stat{position:absolute;top:2.2rem;text-align:left;max-width:170px}
+    .side-stat.l{left:0}.side-stat.r{right:0;text-align:right}
+    .side-stat .n{font-size:2.3rem;font-weight:700;letter-spacing:-.04em;line-height:1}
+    .side-stat .n em{font-family:var(--serif);font-weight:400;font-style:italic}
+    .side-stat .t{font-size:.82rem;color:var(--ink-3);margin-top:.4rem;line-height:1.4}
+    .side-stat .bar{height:1px;width:56px;background:var(--line-2);margin-bottom:.9rem}
+    .side-stat.r .bar{margin-left:auto}
+
+    /* glass cards */
+    .glass{background:linear-gradient(160deg,rgba(244,237,224,.09),rgba(244,237,224,.03));border:1px solid var(--line);border-radius:var(--r);
+      backdrop-filter:blur(20px) saturate(140%);-webkit-backdrop-filter:blur(20px) saturate(140%);
+      box-shadow:0 24px 60px -20px rgba(0,0,0,.55), inset 0 1px 0 rgba(244,237,224,.08)}
+
+    .dash{position:relative;margin:2.2rem auto 0;max-width:1040px;height:430px}
+    .dash .rocket{position:absolute;left:50%;top:0;transform:translateX(-50%);width:520px;max-width:100%;opacity:.9}
+    .dash .rocket .orb{transform-origin:260px 215px;animation:spin 80s linear infinite}
     @keyframes spin{to{transform:rotate(360deg)}}
-    @keyframes tw{50%{opacity:.25}}
-    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-    a:focus-visible,.btn:focus-visible{outline:3px solid var(--navy);outline-offset:3px}
-    .hdr-buy{display:none;padding:.5rem 1rem;font-size:.9rem}
-    @media (max-width:640px){
-      header{padding:.7rem 0}
+    .pc{position:absolute;padding:1rem 1.1rem;text-align:left;animation:float 7s ease-in-out infinite}
+    @keyframes float{50%{transform:translateY(-8px)}}
+    .pc .hd{display:flex;align-items:center;justify-content:space-between;gap:.75rem;margin-bottom:.7rem}
+    .pc .ttl{font-size:.78rem;color:var(--ink-2);font-weight:600;letter-spacing:.01em}
+    .tag{white-space:nowrap;font-size:.66rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:.12rem .5rem;background:rgba(244,237,224,.05)}
+    .pc .big{font-size:1.7rem;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+    .pc .sub{font-size:.76rem;color:var(--ink-3);margin-top:.2rem}
+
+    .pc-score{left:0;top:10px;width:270px}
+    .gauge{display:flex;align-items:center;gap:.9rem}
+    .gauge svg{width:84px;height:84px;flex:none}
+    .meter{height:6px;border-radius:99px;background:rgba(244,237,224,.1);overflow:hidden;margin-top:.45rem}
+    .meter i{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,rgba(244,237,224,.45),#F4EDE0)}
+    .mrow{font-size:.72rem;color:var(--ink-3);display:flex;justify-content:space-between;margin-top:.6rem}
+
+    .pc-open{right:0;top:0;width:285px;animation-delay:-2s}
+    .list{display:grid;gap:.45rem}
+    .pc-open .list div:nth-child(3){display:none}
+    .list div{display:flex;align-items:center;gap:.6rem;font-size:.8rem;color:var(--ink-2);padding:.45rem .55rem;border-radius:10px;background:rgba(244,237,224,.04);border:1px solid rgba(244,237,224,.07)}
+    .list .dot{width:22px;height:22px;border-radius:7px;flex:none;background:rgba(244,237,224,.1);display:grid;place-items:center}
+    .list .dot svg{width:12px;height:12px}
+    .skel{height:7px;border-radius:99px;background:rgba(244,237,224,.16)}
+
+    .pc-kit{left:7%;bottom:0;width:270px;animation-delay:-4s}
+    .avatars{display:flex;margin:.15rem 0 .65rem}
+    .avatars span{width:28px;height:28px;border-radius:50%;border:2px solid #16223F;margin-left:-8px;background:linear-gradient(145deg,rgba(244,237,224,.35),rgba(244,237,224,.1))}
+    .avatars span:first-child{margin-left:0}
+    .avatars b{margin-left:.5rem;font-size:.78rem;color:var(--ink-2);font-weight:600;align-self:center}
+    .spark{width:100%;height:38px;display:block}
+
+    .pc-ship{right:9%;bottom:-6px;width:290px;animation-delay:-1s}
+    .steps-mini{display:flex;gap:.35rem;margin-top:.7rem}
+    .steps-mini i{flex:1;height:6px;border-radius:99px;background:rgba(244,237,224,.12)}
+    .steps-mini i.on{background:rgba(244,237,224,.75)}
+    .chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.7rem}
+    .chip{font-size:.7rem;color:var(--ink-2);padding:.2rem .55rem;border-radius:999px;border:1px solid var(--line);background:rgba(244,237,224,.04)}
+
+    /* feature strip */
+    .strip{position:relative;z-index:1;margin-top:3rem;padding:1.15rem 1.4rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .feat{text-align:left;display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:var(--ink-2)}
+    .feat b{display:block;color:var(--ink);font-weight:600;font-size:.92rem}
+    .feat small{font-size:.78rem;color:var(--ink-3)}
+    .fi{width:38px;height:38px;border-radius:12px;flex:none;display:grid;place-items:center;background:var(--glass-2);border:1px solid var(--line)}
+    .fi svg{width:18px;height:18px}
+
+    /* sections */
+    #packages::before,#more::before{content:"";position:absolute;left:50%;top:10%;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(70,96,160,.20),transparent);pointer-events:none;z-index:-1}
+    section{position:relative;z-index:1;padding:5.5rem 0}
+    .kicker{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:.9rem}
+    .section-title{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.02;letter-spacing:-.045em;font-weight:700}
+    .section-title em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+    .section-sub{color:var(--ink-2);margin-top:1rem;max-width:36rem;font-size:1.05rem}
+    .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.6rem;flex-wrap:wrap}
+
+    .packages{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .card{position:relative;display:flex;flex-direction:column;padding:1.5rem 1.35rem 1.35rem;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .card:hover{transform:translateY(-5px);border-color:var(--line-2)}
+    .card.best{background:linear-gradient(160deg,rgba(244,237,224,.15),rgba(244,237,224,.05));border-color:rgba(244,237,224,.3)}
+    .card.best::before{content:"";position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+      background:radial-gradient(80% 50% at 50% 0%,rgba(244,237,224,.12),transparent 70%)}
+    .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.3rem}
+    .ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--glass-2);border:1px solid var(--line);transition:transform .25s}
+    .card:hover .ico{transform:rotate(-6deg) scale(1.05)}
+    .ico svg{width:22px;height:22px}
+    .badge{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:.3rem .65rem;border-radius:999px;background:#F4EDE0;color:#0B1426}
+    .card h3{font-size:1.12rem;font-weight:600;letter-spacing:-.015em;line-height:1.3;min-height:2.9em}
+    .price{font-size:3rem;font-weight:700;letter-spacing:-.05em;line-height:1;margin:.9rem 0 .2rem;display:flex;align-items:baseline;gap:.45rem;flex-wrap:wrap}
+    .price small{font-size:.78rem;font-weight:600;letter-spacing:.02em;color:var(--ink-2);border:1px solid var(--line-2);border-radius:999px;padding:.15rem .55rem;align-self:center}
+    .note{font-size:.8rem;color:var(--ink-3)}
+    .card hr{border:0;height:1px;background:var(--line);margin:1.1rem 0}
+    .card ul{list-style:none;display:grid;gap:.6rem;font-size:.9rem;color:var(--ink-2);margin-bottom:1.5rem;flex:1;align-content:start}
+    .card li{display:flex;gap:.6rem;align-items:flex-start;line-height:1.45}
+    .card li svg{width:16px;height:16px;flex:none;margin-top:.15rem;opacity:.85}
+    .btn-buy{width:100%;padding:.9rem .8rem;font-size:.9rem;white-space:normal;text-align:center}
+    .intake-note{margin-top:1.25rem;display:flex;align-items:center;gap:.8rem;padding:1rem 1.2rem;color:var(--ink-2);font-size:.95rem;border-radius:16px}
+
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;position:relative}
+    .step{padding:1.6rem 1.5rem;position:relative;overflow:hidden}
+    .step .num{position:absolute;right:1.1rem;top:.4rem;font-family:var(--serif);font-style:italic;font-size:5.5rem;line-height:1;color:rgba(244,237,224,.09)}
+    .step h3{font-size:1.15rem;font-weight:600;letter-spacing:-.015em;margin:1.2rem 0 .4rem}
+    .step p{color:var(--ink-2);font-size:.95rem}
+    .step .pill{display:inline-block;margin-top:1.1rem;font-size:.72rem;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:.2rem .6rem}
+
+    .panel{padding:clamp(2rem,5vw,3.5rem);display:grid;grid-template-columns:1.3fr 1fr;gap:2rem;align-items:center;overflow:hidden;position:relative}
+    .panel::after{content:"";position:absolute;right:-120px;top:-140px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(110,140,210,.28),transparent 65%);pointer-events:none}
+    .panel p{color:var(--ink-2);margin-top:1rem;font-size:1.05rem;max-width:32rem}
+    .panel svg.orbit{width:100%;max-width:260px;justify-self:end;position:relative;z-index:1}
+
+    .q{text-align:center}
+    .q .section-sub{margin-inline:auto}
+    .links{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+
+    footer{position:relative;z-index:1;border-top:1px solid var(--line);padding:2.2rem 0 2.6rem;color:var(--ink-3);font-size:.88rem}
+    footer .row{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+    footer strong{color:var(--ink)}
+
+    .hdr-buy{display:none}
+
+    @media (max-width:1000px){
+      .packages{grid-template-columns:repeat(2,1fr)}
+      .strip{grid-template-columns:repeat(2,1fr)}
+      .side-stat{display:none}
+      .pc-kit{left:0}.pc-ship{right:0}
+    }
+    @media (max-width:760px){
       .nav-links{display:none}
       .hdr-buy{display:inline-flex}
-      .hero{padding:2.5rem 0 1.5rem}
-      .hero-art{max-width:300px}
-      .card h3{padding-right:0}
-      .card.best h3{padding-right:5.5rem}
-      section{padding:2.5rem 0}
+      .hero{padding:3rem 0 1rem}
+      .hero h1{letter-spacing:-.05em}
+      .dash{height:auto;margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+      .dash .rocket{display:none}
+      .pc{position:relative;inset:auto;width:auto;animation:none;padding:.9rem}
+      .pc-score{grid-column:1/-1}
+      .pc-open{grid-column:1/-1}
+      .pc-kit,.pc-ship{grid-column:span 1}
+      .pc .list div:nth-child(n+3){display:none}
+      .steps{grid-template-columns:1fr}
+      .panel{grid-template-columns:1fr}
+      .panel svg.orbit{display:none}
+      section{padding:4rem 0}
+      .mobile-stats{display:flex!important}
     }
+    @media (max-width:560px){
+      .wrap{width:min(100% - 1.75rem,var(--max))}
+      .packages{grid-template-columns:1fr}
+      .strip{grid-template-columns:1fr;gap:.85rem}
+      .dash{grid-template-columns:1fr}
+      .pc-kit,.pc-ship{grid-column:1/-1}
+      .card h3{min-height:0}
+      .sticky-buy{display:flex!important}
+      body{padding-bottom:84px}
+    }
+    .mobile-stats{display:none;justify-content:center;gap:1.75rem;margin-top:2rem}
+    .mobile-stats div{text-align:center}
+    .mobile-stats b{display:block;font-size:1.5rem;letter-spacing:-.03em;font-weight:700;line-height:1}
+    .mobile-stats span{font-size:.75rem;color:var(--ink-3)}
+    .sticky-buy{display:none;position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:60;padding:.5rem;border-radius:999px;align-items:center;justify-content:space-between;gap:.75rem;
+      background:rgba(16,27,51,.72);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.45)}
+    .sticky-buy span{font-size:.85rem;color:var(--ink-2);padding-left:.8rem}
+    .sticky-buy span b{color:var(--ink)}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
+  <div class="sky" aria-hidden="true">
+    <svg class="stars" preserveAspectRatio="none" viewBox="0 0 1440 1100">
+      <circle cx="80" cy="120" r="1.2"/><circle class="tw" cx="210" cy="300" r="1"/><circle cx="330" cy="80" r=".8"/><circle class="tw" cx="460" cy="210" r="1.1" style="animation-delay:1s"/><circle cx="600" cy="60" r=".9"/><circle cx="760" cy="160" r="1"/><circle class="tw" cx="900" cy="90" r="1.3" style="animation-delay:2s"/><circle cx="1040" cy="240" r=".8"/><circle cx="1180" cy="70" r="1.1"/><circle class="tw" cx="1320" cy="190" r="1" style="animation-delay:.5s"/><circle cx="1400" cy="380" r=".9"/><circle cx="40" cy="460" r="1"/><circle class="tw" cx="150" cy="620" r="1.2" style="animation-delay:1.5s"/><circle cx="1290" cy="560" r="1"/><circle cx="1380" cy="720" r="1.2"/><circle cx="520" cy="420" r=".7"/><circle cx="980" cy="380" r=".7"/><circle class="tw" cx="1120" cy="480" r="1" style="animation-delay:2.5s"/><circle cx="260" cy="520" r=".8"/>
+    </svg>
+    <div class="horizon"></div>
+  </div>
+
   <header>
-    <div class="wrap nav">
-      <a class="logo" href="#">Crafted by <span>Tom</span></a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#packages">Packages</a>
-        <a href="#how">How it works</a>
-        <a href="#more">More</a>
-        <a href="#questions">Questions</a>
-      </nav>
-      <a class="btn btn-primary hdr-buy" href="#packages">Buy</a>
+    <div class="wrap">
+      <div class="nav">
+        <a class="logo" href="#">
+          <span class="logo-mark"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F4EDE0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 4 5 9 3 14H9C7 12 8 7 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9 17l-2 3M15 17l2 3"/></svg></span>
+          <span>Crafted by <em>Tom</em></span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#packages">Packages</a>
+          <a href="#how">How it works</a>
+          <a href="#more">More</a>
+          <a href="#questions">Questions</a>
+        </nav>
+        <a class="btn btn-glass btn-sm nav-cta" href="#packages">See packages</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-        <h1>Crafted by <span>Tom</span>.</h1>
+    <section class="hero" style="padding-bottom:0">
+      <div class="wrap hero-stage">
+        <div class="side-stat l"><div class="bar"></div><div class="n">4</div><div class="t">packages, from resume to interview</div></div>
+        <div class="side-stat r"><div class="bar"></div><div class="n"><em>from</em> $25</div><div class="t">Stripe checkout. Secure and one-time.</div></div>
+
+        <span class="eyebrow"><b>STEM &amp; aerospace</b> Career coaching</span>
+        <h1>Crafted by <em>Tom</em><span class="dot-end">.</span></h1>
         <p class="tagline">Career coaching for STEM and aerospace students and early-career engineers, from an aerospace systems engineer who has reviewed dozens of engineering resumes.</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#packages">See packages</a>
-          <a class="btn btn-ghost" href="#questions">Ask a question</a>
+          <a class="btn btn-coral" href="#packages">See packages <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-glass" href="#questions">Ask a question</a>
         </div>
+        <div class="mobile-stats" aria-hidden="true">
+          <div><b>4</b><span>packages</span></div>
+          <div><b>$25</b><span>starting price</span></div>
+          <div><b>Stripe</b><span>secure checkout</span></div>
         </div>
-        <svg class="hero-art" viewBox="0 0 440 400" role="img" aria-label="Rocket on an orbital trajectory" fill="none">
-  <defs><radialGradient id="pl" cx="40%" cy="35%"><stop offset="0" stop-color="#243656"/><stop offset="1" stop-color="#0F1E3A"/></radialGradient></defs>
-  <g fill="#0F1E3A"><circle class="tw" cx="40" cy="50" r="1.6"/><circle cx="380" cy="40" r="1.2"/><circle class="tw" cx="410" cy="300" r="1.5" style="animation-delay:1s"/><circle cx="60" cy="330" r="1.2"/><circle class="tw" cx="300" cy="20" r="1.4" style="animation-delay:2s"/><circle cx="120" cy="140" r="1"/><circle cx="350" cy="370" r="1.1"/><circle class="tw" cx="20" cy="210" r="1.3" style="animation-delay:.5s"/></g>
-  <circle cx="220" cy="200" r="70" fill="url(#pl)" stroke="#1A2B4A" stroke-width="2"/>
-  <path d="M160 180c30 10 80 8 120-6M155 215c40 12 90 10 128-6" stroke="#1A2B4A" stroke-width="2"/>
-  <g class="orb"><ellipse cx="220" cy="200" rx="185" ry="70" transform="rotate(-20 220 200)" stroke="#0F1E3A" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 7"/>
-  <g transform="rotate(-20 220 200)"><circle cx="35" cy="200" r="5" fill="#0F1E3A"/></g></g>
-  <ellipse cx="220" cy="200" rx="130" ry="150" transform="rotate(35 220 200)" stroke="#0F1E3A" stroke-opacity=".22" stroke-width="1.2"/>
-  <path d="M70 360C140 300 230 230 330 90" stroke="#0F1E3A" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 9"/>
-  <g transform="translate(330 90) rotate(35)" stroke="#0F1E3A" stroke-width="2.2" stroke-linejoin="round">
-    <path d="M0-34c10 10 13 26 9 44H-9c-4-18-1-34 9-44z" fill="#F6F1E7"/>
-    <circle cx="0" cy="-12" r="4.5" stroke="#0F1E3A"/>
-    <path d="M-9 4l-9 12 9-2M9 4l9 12-9-2" fill="#F6F1E7"/>
-    <path d="M-5 14q5 14 5 18q0-4 5-18" stroke="#1A2B4A"/>
-  </g>
-</svg>
+
+        <div class="dash">
+          <svg class="rocket" viewBox="0 0 520 430" fill="none" aria-hidden="true">
+            <g class="orb"><ellipse cx="260" cy="215" rx="240" ry="80" transform="rotate(-18 260 215)" stroke="#F4EDE0" stroke-opacity=".16" stroke-dasharray="3 8"/>
+              <g transform="rotate(-18 260 215)"><circle cx="20" cy="215" r="3.5" fill="#F4EDE0" fill-opacity=".6"/></g></g>
+            <ellipse cx="260" cy="215" rx="160" ry="190" transform="rotate(32 260 215)" stroke="#F4EDE0" stroke-opacity=".08"/>
+            <path d="M120 400C190 330 270 250 350 110" stroke="#F4EDE0" stroke-opacity=".35" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 9"/>
+            <g transform="translate(352 104) rotate(32)" stroke="#F4EDE0" stroke-opacity=".85" stroke-width="1.6" stroke-linejoin="round">
+              <path d="M0-30c9 9 11 23 8 39H-8c-3-16-1-30 8-39z" fill="#0F1A31"/>
+              <circle cx="0" cy="-10" r="4"/>
+              <path d="M-8 4l-8 11 8-2M8 4l8 11-8-2" fill="#0F1A31"/>
+              <path d="M-4 13q4 12 4 16q0-4 4-16" stroke="#FF6B5A" stroke-opacity=".8"/>
+            </g>
+          </svg>
+
+          <div class="glass pc pc-score" aria-label="Sample resume match score, illustrative only">
+            <div class="hd"><span class="ttl">Resume match score</span><span class="tag">Sample</span></div>
+            <div class="gauge">
+              <svg viewBox="0 0 84 84" aria-hidden="true"><circle cx="42" cy="42" r="34" stroke="rgba(244,237,224,.12)" stroke-width="7" fill="none"/><circle cx="42" cy="42" r="34" stroke="#F4EDE0" stroke-width="7" fill="none" stroke-linecap="round" stroke-dasharray="150 214" transform="rotate(-90 42 42)"/><text x="42" y="47" text-anchor="middle" fill="#F4EDE0" font-family="Inter,sans-serif" font-size="15" font-weight="700">—</text></svg>
+              <div style="flex:1">
+                <div class="sub" style="margin:0">vs. target roles</div>
+                <div class="meter"><i style="width:72%"></i></div>
+                <div class="meter"><i style="width:48%"></i></div>
+                <div class="meter"><i style="width:84%"></i></div>
+              </div>
+            </div>
+            <div class="mrow"><span>4-page report</span><span>Marked-up Word copy</span></div>
+          </div>
+
+          <div class="glass pc pc-open">
+            <div class="hd"><span class="ttl">Matching openings</span><span class="tag">Resume Review</span></div>
+            <div class="big">10–15</div>
+            <div class="sub">matching openings in your report</div>
+            <div class="list" style="margin-top:.75rem">
+              <div><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#F4EDE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span class="skel" style="width:60%"></span></div>
+              <div><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#F4EDE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span class="skel" style="width:75%"></span></div>
+              <div><span class="dot"><svg viewBox="0 0 24 24" fill="none" stroke="#F4EDE0" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5 9-10"/></svg></span><span class="skel" style="width:50%"></span></div>
+            </div>
+          </div>
+
+          <div class="glass pc pc-kit">
+            <div class="hd"><span class="ttl">Networking Kit</span><span class="tag">$79</span></div>
+            <div class="avatars"><span></span><span></span><span></span><span></span><span></span><b>15 real people</b></div>
+            <div class="sub" style="margin:0">on target teams, each with a personal first message</div>
+            <svg class="spark" viewBox="0 0 240 38" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#F4EDE0" stop-opacity=".25"/><stop offset="1" stop-color="#F4EDE0" stop-opacity="0"/></linearGradient></defs><path d="M0 32 C30 30 40 22 70 24 S110 12 140 16 S190 6 240 4 V38 H0Z" fill="url(#sg)"/><path d="M0 32 C30 30 40 22 70 24 S110 12 140 16 S190 6 240 4" stroke="#F4EDE0" stroke-opacity=".7" stroke-width="1.5" fill="none"/></svg>
+          </div>
+
+          <div class="glass pc pc-ship">
+            <div class="hd"><span class="ttl">Full Application Package</span><span class="tag">Best value</span></div>
+            <div class="big">7 days</div>
+            <div class="sub">delivered within 7 days</div>
+            <div class="steps-mini"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+            <div class="chips"><span class="chip">Cover letter</span><span class="chip">LinkedIn rewrite</span><span class="chip">14-day revisions</span></div>
+          </div>
+        </div>
+
+        <div class="glass strip">
+          <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><span><b>Stripe checkout</b><small>Secure and one-time</small></span></div>
+          <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3M8.5 11l1.5 1.5 3-3M8.5 16h7"/></svg></span><span><b>Short intake form</b><small>Resume + target roles</small></span></div>
+          <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></span><span><b>Reviewed personally</b><small>By Tom</small></span></div>
+          <div class="feat"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 4 5 9 3 14H9C7 12 8 7 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9 17l-2 3M15 17l2 3"/></svg></span><span><b>Built for STEM</b><small>Students &amp; early-career engineers</small></span></div>
+        </div>
       </div>
     </section>
 
     <section id="packages">
       <div class="wrap">
-        <h2 class="section-title">Packages</h2>
-        <p class="section-sub">Clear deliverables. Stripe checkout. Tom reviews personally.</p>
+        <div class="sec-head">
+          <div>
+            <span class="kicker">Packages</span>
+            <h2 class="section-title">Pick your <em>package</em>.</h2>
+            <p class="section-sub">Clear deliverables. Stripe checkout. Tom reviews personally.</p>
+          </div>
+        </div>
         <div class="packages">
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div>
+          <article class="glass card">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div></div>
             <h3>Resume Review</h3>
             <div class="price">$25 <small>founding price</small></div>
             <p class="note">Opening price for now — may go up.</p>
+            <hr>
             <ul>
-              <li>4-page report on how your resume reads to a screener</li>
-              <li>Match score against target roles</li>
-              <li>Marked-up Word copy</li>
-              <li>Swap-in bullets</li>
-              <li>10–15 matching openings</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>4-page report on how your resume reads to a screener</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Match score against target roles</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Marked-up Word copy</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Swap-in bullets</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>10–15 matching openings</li>
             </ul>
-            <a class="btn btn-buy" href="https://buy.stripe.com/28EcN490GewAfu98G333W04" target="_blank" rel="noopener noreferrer">Buy Resume Review</a>
+            <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/28EcN490GewAfu98G333W04" target="_blank" rel="noopener noreferrer">Buy Resume Review</a>
           </article>
 
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="12" cy="13" r="1.8"/><path d="M12 7.2v4M10.6 14.3l-4 2.4M13.4 14.3l4 2.4M7.2 18h9.6"/></svg></div>
+          <article class="glass card">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="12" cy="13" r="1.8"/><path d="M12 7.2v4M10.6 14.3l-4 2.4M13.4 14.3l4 2.4M7.2 18h9.6"/></svg></div></div>
             <h3>LinkedIn and Networking Kit</h3>
             <div class="price">$79</div>
+            <hr>
             <ul>
-              <li>LinkedIn rewrite aimed at target roles</li>
-              <li>15 real people on target teams</li>
-              <li>A personal first message for each</li>
-              <li>Follow-up templates</li>
-              <li>One-time — no ongoing support</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>LinkedIn rewrite aimed at target roles</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>15 real people on target teams</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A personal first message for each</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Follow-up templates</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>One-time — no ongoing support</li>
             </ul>
-            <a class="btn btn-buy" href="https://buy.stripe.com/aFa14mgt82NS6XD09x33W03" target="_blank" rel="noopener noreferrer">Buy LinkedIn Kit</a>
+            <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/aFa14mgt82NS6XD09x33W03" target="_blank" rel="noopener noreferrer">Buy LinkedIn Kit</a>
           </article>
 
-          <article class="card best">
-            <span class="badge">Best value</span>
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg></div>
+          <article class="glass card best">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg></div><span class="badge">Best value</span></div>
             <h3>Full Application Package</h3>
             <div class="price">$99</div>
+            <hr>
             <ul>
-              <li>Everything in the Resume Review</li>
-              <li>A cover letter built from a voice memo or story of yours</li>
-              <li>A LinkedIn rewrite</li>
-              <li>One round of revisions within 14 days</li>
-              <li>Delivered within 7 days</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Everything in the Resume Review</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A cover letter built from a voice memo or story of yours</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A LinkedIn rewrite</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>One round of revisions within 14 days</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Delivered within 7 days</li>
             </ul>
-            <a class="btn btn-buy" href="https://buy.stripe.com/6oUcN4fp4fAEfu96xV33W02" target="_blank" rel="noopener noreferrer">Buy Full Application Package</a>
+            <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/6oUcN4fp4fAEfu96xV33W02" target="_blank" rel="noopener noreferrer">Buy Full Application Package</a>
           </article>
 
-          <article class="card">
-            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="18" cy="17" r="4"/><circle cx="18" cy="17" r="1.3"/></svg></div>
+          <article class="glass card">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="18" cy="17" r="4"/><circle cx="18" cy="17" r="1.3"/></svg></div></div>
             <h3>Interview Sprint</h3>
             <div class="price">$99</div>
+            <hr>
             <ul>
-              <li>Prep plan for each company you're interviewing with</li>
-              <li>Technical study guidance for your role</li>
-              <li>You do the homework and check in as you go</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Prep plan for each company you're interviewing with</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Technical study guidance for your role</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>You do the homework and check in as you go</li>
             </ul>
-            <a class="btn btn-buy" href="https://buy.stripe.com/00w28q6Sycos4Pv6xV33W05" target="_blank" rel="noopener noreferrer">Buy Interview Sprint</a>
+            <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/00w28q6Sycos4Pv6xV33W05" target="_blank" rel="noopener noreferrer">Buy Interview Sprint</a>
           </article>
         </div>
-        <p class="intake-note">After you pay, you'll fill out a short intake form. Pick the package you bought.</p>
+        <p class="glass intake-note"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3M8.5 11l1.5 1.5 3-3M8.5 16h7"/></svg></span>After you pay, you'll fill out a short intake form. Pick the package you bought.</p>
       </div>
     </section>
 
     <section id="how">
       <div class="wrap">
-        <h2 class="section-title">How it works</h2>
-        <p class="section-sub">Three steps from checkout to deliverables.</p>
+        <div class="sec-head">
+          <div>
+            <span class="kicker">Process</span>
+            <h2 class="section-title">How it <em>works</em></h2>
+            <p class="section-sub">Three steps from checkout to deliverables.</p>
+          </div>
+        </div>
         <div class="steps">
-          <div class="step">
-            <div class="step-head"><div class="ico"><span class="step-num">1</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div></div>
+          <div class="glass step">
+            <span class="num">1</span>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
             <h3>Choose a package and pay</h3>
             <p>Stripe checkout. Secure and one-time.</p>
           </div>
-          <div class="step">
-            <div class="step-head"><div class="ico"><span class="step-num">2</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3M8.5 11l1.5 1.5 3-3M8.5 16h7"/></svg></div></div>
+          <div class="glass step">
+            <span class="num">2</span>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3M8.5 11l1.5 1.5 3-3M8.5 16h7"/></svg></div>
             <h3>Fill out the intake form</h3>
             <p>You land on it right after paying — resume + target roles.</p>
           </div>
-          <div class="step">
-            <div class="step-head"><div class="ico"><span class="step-num">3</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 4 5 9 3 14H9C7 12 8 7 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9 17l-2 3M15 17l2 3M12 17v4"/></svg></div></div>
+          <div class="glass step">
+            <span class="num">3</span>
+            <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c4 4 5 9 3 14H9C7 12 8 7 12 3z"/><circle cx="12" cy="9.5" r="1.6"/><path d="M9 17l-2 3M15 17l2 3M12 17v4"/></svg></div>
             <h3>Get your deliverables</h3>
             <p>Tom reviews personally.</p>
           </div>
@@ -453,32 +465,48 @@
       </div>
     </section>
 
-    <section id="more">
+    <section id="more" style="padding-top:1rem">
       <div class="wrap">
-        <div class="panel">
-          <h2 class="section-title">Looking for more?</h2>
-          <p>Limited 1:1 coaching for people who want hands-on help through the whole search. DM “COACHING”.</p>
+        <div class="glass panel">
+          <div style="position:relative;z-index:1">
+            <span class="kicker">1:1 coaching</span>
+            <h2 class="section-title">Looking for <em>more?</em></h2>
+            <p>Limited 1:1 coaching for people who want hands-on help through the whole search. DM “COACHING”.</p>
+          </div>
+          <svg class="orbit" viewBox="0 0 260 220" fill="none" aria-hidden="true">
+            <circle cx="130" cy="110" r="38" stroke="#F4EDE0" stroke-opacity=".5"/>
+            <ellipse cx="130" cy="110" rx="118" ry="40" transform="rotate(-20 130 110)" stroke="#F4EDE0" stroke-opacity=".28" stroke-dasharray="3 7"/>
+            <ellipse cx="130" cy="110" rx="80" ry="100" transform="rotate(30 130 110)" stroke="#F4EDE0" stroke-opacity=".14"/>
+            <circle cx="22" cy="140" r="4" fill="#F4EDE0" fill-opacity=".7"/>
+            <circle cx="214" cy="40" r="2.5" fill="#F4EDE0" fill-opacity=".5"/>
+          </svg>
         </div>
       </div>
     </section>
 
-    <section id="questions">
+    <section id="questions" class="q">
       <div class="wrap">
-        <h2 class="section-title">Questions?</h2>
+        <span class="kicker">Contact</span>
+        <h2 class="section-title">Questions<em>?</em></h2>
         <p class="section-sub">DM “RESUME” on Instagram or reach out on LinkedIn.</p>
         <div class="links">
-          <a class="btn btn-primary" href="https://instagram.com/crafted.bytom" target="_blank" rel="noopener noreferrer">Instagram @crafted.bytom</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/thomas-placzkowski" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn-glass" href="https://instagram.com/crafted.bytom" target="_blank" rel="noopener noreferrer">Instagram @crafted.bytom</a>
+          <a class="btn btn-glass" href="https://www.linkedin.com/in/thomas-placzkowski" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="wrap">
+    <div class="wrap row">
       <p><strong>No guarantees.</strong> Every package is built to make your applications stronger; nobody can promise a job offer.</p>
-      <p style="margin-top:.75rem">© Crafted by Tom</p>
+      <p>© Crafted by Tom</p>
     </div>
   </footer>
+
+  <div class="sticky-buy" aria-label="Quick buy">
+    <span><b>From $25</b> · 4 packages</span>
+    <a class="btn btn-coral btn-sm" href="#packages">Buy</a>
+  </div>
 </body>
 </html>
