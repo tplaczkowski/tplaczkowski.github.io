@@ -154,7 +154,8 @@
     .fi svg{width:18px;height:18px}
 
     /* sections */
-    #packages::before,#more::before{content:"";position:absolute;left:50%;top:10%;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(70,96,160,.20),transparent);pointer-events:none;z-index:-1}
+    #packages::before,#how::before{content:"";position:absolute;left:50%;top:10%;width:900px;height:600px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(70,96,160,.20),transparent);pointer-events:none;z-index:-1}
+    section[id]{scroll-margin-top:5.5rem}
     section{position:relative;z-index:1;padding:5.5rem 0}
     .kicker{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:.9rem}
     .section-title{font-size:clamp(2.2rem,5.2vw,3.6rem);line-height:1.02;letter-spacing:-.045em;font-weight:700}
@@ -162,7 +163,33 @@
     .section-sub{color:var(--ink-2);margin-top:1rem;max-width:36rem;font-size:1.05rem}
     .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2.6rem;flex-wrap:wrap}
 
-    .packages{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+    .packages{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .packages.secondary{grid-template-columns:repeat(2,1fr);margin-top:1rem}
+    .packages.secondary .card{padding:1.05rem 1.2rem;flex-direction:row;align-items:center;flex-wrap:wrap;gap:.85rem 1.1rem}
+    .packages.secondary .card:hover{transform:translateY(-3px)}
+    .packages.secondary .card-top{margin:0}
+    .packages.secondary .mid{flex:1;min-width:11rem}
+    .packages.secondary h3{min-height:0;font-size:1.02rem}
+    .packages.secondary .price{font-size:1.7rem;margin:.2rem 0 0}
+    .packages.secondary .note{margin-top:.2rem}
+    .packages.secondary .btn-buy{width:auto;margin-left:auto;padding:.7rem 1.1rem;font-size:.88rem;white-space:nowrap}
+    .more-kicker{margin:2.4rem 0 .9rem}
+    .lead{color:var(--ink-2);font-size:.92rem;line-height:1.5;margin:.85rem 0 .35rem}
+    .lead em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--ink);letter-spacing:-.01em;padding-right:.14em}
+    .examples-block{margin-top:4.2rem}
+    .examples-block .sec-head{margin-bottom:1.4rem}
+    .examples-block .section-sub{max-width:44rem}
+    .samples{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .sample{display:flex;flex-direction:column;padding:0;overflow:hidden;color:inherit;cursor:zoom-in;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+    .sample:hover{transform:translateY(-5px);border-color:var(--line-2)}
+    .sample img{width:100%;height:260px;object-fit:cover;object-position:top center;display:block;background:#fff}
+    .sample img.cover{object-position:center 14%}
+    .sample .cap{padding:.9rem 1.05rem 1.05rem;font-size:.92rem;font-weight:600;letter-spacing:-.015em}
+    .sample .cap span{display:block;margin-top:.2rem;font-size:.78rem;font-weight:500;color:var(--ink-3);letter-spacing:0}
+    .lightbox{position:fixed;inset:0;z-index:80;background:rgba(11,20,38,.92);display:flex;align-items:center;justify-content:center;padding:1.5rem;cursor:zoom-out}
+    .lightbox[hidden]{display:none}
+    .lightbox img{max-width:min(920px,100%);max-height:90vh;border-radius:12px;box-shadow:0 24px 60px -20px rgba(0,0,0,.7);background:#fff;cursor:default}
+    .lightbox-close{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border-radius:999px;border:1px solid var(--line-2);background:var(--glass-2);color:var(--ink);font-size:1.4rem;line-height:1;cursor:pointer}
     .card{position:relative;display:flex;flex-direction:column;padding:1.5rem 1.35rem 1.35rem;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
     .card:hover{transform:translateY(-5px);border-color:var(--line-2)}
     .card.best{background:linear-gradient(160deg,rgba(244,237,224,.15),rgba(244,237,224,.05));border-color:rgba(244,237,224,.3)}
@@ -208,9 +235,11 @@
 
     @media (max-width:1000px){
       .packages{grid-template-columns:repeat(2,1fr)}
+      .packages.secondary{grid-template-columns:repeat(2,1fr)}
       .strip{grid-template-columns:repeat(2,1fr)}
       .side-stat{display:none}
       .pc-kit{left:0}.pc-ship{right:0}
+      .sample img{height:220px}
     }
     @media (max-width:760px){
       .nav-links{display:none}
@@ -229,10 +258,14 @@
       .panel svg.orbit{display:none}
       section{padding:4rem 0}
       .mobile-stats{display:flex!important}
+      .samples{display:flex;overflow-x:auto;gap:.75rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:.4rem}
+      .sample{flex:0 0 min(82%,20.5rem);scroll-snap-align:start}
+      .sample img{height:240px}
     }
     @media (max-width:560px){
       .wrap{width:min(100% - 1.75rem,var(--max))}
-      .packages{grid-template-columns:1fr}
+      .packages,.packages.secondary{grid-template-columns:1fr}
+      .packages.secondary .btn-buy{width:100%;margin-left:0}
       .strip{grid-template-columns:1fr;gap:.85rem}
       .dash{grid-template-columns:1fr}
       .pc-kit,.pc-ship{grid-column:1/-1}
@@ -268,8 +301,8 @@
         </a>
         <nav class="nav-links" aria-label="Primary">
           <a href="#packages">Packages</a>
+          <a href="#examples">Examples</a>
           <a href="#how">How it works</a>
-          <a href="#more">More</a>
           <a href="#questions">Questions</a>
         </nav>
         <a class="btn btn-glass btn-sm nav-cta" href="#packages">See packages</a>
@@ -280,7 +313,7 @@
   <main>
     <section class="hero" style="padding-bottom:0">
       <div class="wrap hero-stage">
-        <div class="side-stat l"><div class="bar"></div><div class="n">4</div><div class="t">packages, from resume to interview</div></div>
+        <div class="side-stat l"><div class="bar"></div><div class="n">3</div><div class="t">core offers, resume to interview</div></div>
         <div class="side-stat r"><div class="bar"></div><div class="n"><em>from</em> $25</div><div class="t">Stripe checkout. Secure and one-time.</div></div>
 
         <span class="eyebrow"><b>STEM &amp; aerospace</b> Career coaching</span>
@@ -291,7 +324,7 @@
           <a class="btn btn-glass" href="#questions">Ask a question</a>
         </div>
         <div class="mobile-stats" aria-hidden="true">
-          <div><b>4</b><span>packages</span></div>
+          <div><b>3</b><span>core offers</span></div>
           <div><b>$25</b><span>starting price</span></div>
           <div><b>Stripe</b><span>secure checkout</span></div>
         </div>
@@ -370,38 +403,7 @@
           </div>
         </div>
         <div class="packages">
-          <article class="glass card">
-            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div></div>
-            <h3>Resume Review</h3>
-            <div class="price">$25 <small>founding price</small></div>
-            <p class="note">Opening price for now — may go up.</p>
-            <hr>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>4-page report on how your resume reads to a screener</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Match score against target roles</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Marked-up Word copy</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Swap-in bullets</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>10–15 matching openings</li>
-            </ul>
-            <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/28EcN490GewAfu98G333W04" target="_blank" rel="noopener noreferrer">Buy Resume Review</a>
-          </article>
-
-          <article class="glass card">
-            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="12" cy="13" r="1.8"/><path d="M12 7.2v4M10.6 14.3l-4 2.4M13.4 14.3l4 2.4M7.2 18h9.6"/></svg></div></div>
-            <h3>LinkedIn and Networking Kit</h3>
-            <div class="price">$79</div>
-            <hr>
-            <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>LinkedIn rewrite aimed at target roles</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>15 real people on target teams</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A personal first message for each</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Follow-up templates</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>One-time — no ongoing support</li>
-            </ul>
-            <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/aFa14mgt82NS6XD09x33W03" target="_blank" rel="noopener noreferrer">Buy LinkedIn Kit</a>
-          </article>
-
-          <article class="glass card best">
+          <article class="glass card best" id="fap">
             <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 8l-9-5-9 5v8l9 5 9-5z"/><path d="M3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg></div><span class="badge">Best value</span></div>
             <h3>Full Application Package</h3>
             <div class="price">$99</div>
@@ -416,10 +418,11 @@
             <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/6oUcN4fp4fAEfu96xV33W02" target="_blank" rel="noopener noreferrer">Buy Full Application Package</a>
           </article>
 
-          <article class="glass card">
+          <article class="glass card" id="sprint">
             <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/><circle cx="18" cy="17" r="4"/><circle cx="18" cy="17" r="1.3"/></svg></div></div>
             <h3>Interview Sprint</h3>
             <div class="price">$99</div>
+            <p class="note">Flexible schedule — no fixed 7-day window.</p>
             <hr>
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Prep plan for each company you're interviewing with</li>
@@ -428,8 +431,69 @@
             </ul>
             <a class="btn btn-coral btn-buy" href="https://buy.stripe.com/00w28q6Sycos4Pv6xV33W05" target="_blank" rel="noopener noreferrer">Buy Interview Sprint</a>
           </article>
+
+          <article class="glass card" id="coaching">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div></div>
+            <h3>1:1 coaching</h3>
+            <p class="lead">I'm good at <em>one thing:</em> getting engineers in front of the right people. I'll show you how to position yourself so recruiters and hiring managers actually want to talk to you, then work with you until you land the role.</p>
+            <p class="note">Inquiry — no checkout. DM “COACHING”.</p>
+            <hr>
+            <ul>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Positioning, applications, and interview prep</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A weekly call plus text support</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Until you land the role</li>
+            </ul>
+            <a class="btn btn-glass btn-buy" href="https://www.linkedin.com/in/thomas-placzkowski" target="_blank" rel="noopener noreferrer">Message me</a>
+          </article>
+        </div>
+
+        <p class="kicker more-kicker">More packages</p>
+        <div class="packages secondary">
+          <article class="glass card">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></div></div>
+            <div class="mid">
+              <h3>Resume Review</h3>
+              <div class="price">$25 <small>founding price</small></div>
+              <p class="note">Report, marked-up copy, and matching openings.</p>
+            </div>
+            <a class="btn btn-glass btn-buy" href="https://buy.stripe.com/28EcN490GewAfu98G333W04" target="_blank" rel="noopener noreferrer">Buy Resume Review</a>
+          </article>
+
+          <article class="glass card">
+            <div class="card-top"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><circle cx="12" cy="13" r="1.8"/><path d="M12 7.2v4M10.6 14.3l-4 2.4M13.4 14.3l4 2.4M7.2 18h9.6"/></svg></div></div>
+            <div class="mid">
+              <h3>LinkedIn and Networking Kit</h3>
+              <div class="price">$79</div>
+              <p class="note">Rewrite, 15 people on target teams, and a first message for each.</p>
+            </div>
+            <a class="btn btn-glass btn-buy" href="https://buy.stripe.com/aFa14mgt82NS6XD09x33W03" target="_blank" rel="noopener noreferrer">Buy LinkedIn Kit</a>
+          </article>
         </div>
         <p class="glass intake-note"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 3v2h6V3M8.5 11l1.5 1.5 3-3M8.5 16h7"/></svg></span>After you pay, you'll fill out a short intake form. Pick the package you bought.</p>
+
+        <div class="examples-block" id="examples">
+          <div class="sec-head">
+            <div>
+              <span class="kicker">Examples</span>
+              <h2 class="section-title">What you actually <em>get</em>.</h2>
+              <p class="section-sub">A delivered Full Application Package, with identifying details blacked out.</p>
+            </div>
+          </div>
+          <div class="samples">
+            <a class="glass sample" href="gallery/fap-resume-markup.png" data-full="gallery/fap-resume-markup.png">
+              <img src="gallery/fap-resume-markup.png" alt="Redacted resume markup from a delivered Full Application Package." width="1400" height="1811">
+              <div class="cap">Resume markup<span>Tracked changes, aimed at the role</span></div>
+            </a>
+            <a class="glass sample" href="gallery/fap-cover-letter.png" data-full="gallery/fap-cover-letter.png">
+              <img class="cover" src="gallery/fap-cover-letter.png" alt="Redacted cover letter from a delivered Full Application Package." width="1400" height="1811">
+              <div class="cap">Cover letter<span>Written for one posting</span></div>
+            </a>
+            <a class="glass sample" href="gallery/fap-linkedin-banner.png" data-full="gallery/fap-linkedin-banner.png">
+              <img src="gallery/fap-linkedin-banner.png" alt="Redacted LinkedIn review page showing before and after banners." width="1400" height="1811">
+              <div class="cap">LinkedIn banner<span>Shown in place on the profile</span></div>
+            </a>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -465,25 +529,6 @@
       </div>
     </section>
 
-    <section id="more" style="padding-top:1rem">
-      <div class="wrap">
-        <div class="glass panel">
-          <div style="position:relative;z-index:1">
-            <span class="kicker">1:1 coaching</span>
-            <h2 class="section-title">Looking for <em>more?</em></h2>
-            <p>Limited 1:1 coaching for people who want hands-on help through the whole search. DM “COACHING”.</p>
-          </div>
-          <svg class="orbit" viewBox="0 0 260 220" fill="none" aria-hidden="true">
-            <circle cx="130" cy="110" r="38" stroke="#F4EDE0" stroke-opacity=".5"/>
-            <ellipse cx="130" cy="110" rx="118" ry="40" transform="rotate(-20 130 110)" stroke="#F4EDE0" stroke-opacity=".28" stroke-dasharray="3 7"/>
-            <ellipse cx="130" cy="110" rx="80" ry="100" transform="rotate(30 130 110)" stroke="#F4EDE0" stroke-opacity=".14"/>
-            <circle cx="22" cy="140" r="4" fill="#F4EDE0" fill-opacity=".7"/>
-            <circle cx="214" cy="40" r="2.5" fill="#F4EDE0" fill-opacity=".5"/>
-          </svg>
-        </div>
-      </div>
-    </section>
-
     <section id="questions" class="q">
       <div class="wrap">
         <span class="kicker">Contact</span>
@@ -505,8 +550,30 @@
   </footer>
 
   <div class="sticky-buy" aria-label="Quick buy">
-    <span><b>From $25</b> · 4 packages</span>
+    <span><b>From $25</b> · Packages</span>
     <a class="btn btn-coral btn-sm" href="#packages">Buy</a>
   </div>
+  <div class="lightbox" id="lightbox" hidden>
+    <button type="button" class="lightbox-close" aria-label="Close preview">&times;</button>
+    <img alt="">
+  </div>
+  <script>
+    (function(){
+      var box = document.getElementById("lightbox");
+      var img = box.querySelector("img");
+      function close(){ box.hidden = true; img.removeAttribute("src"); document.body.style.overflow = ""; }
+      document.querySelectorAll(".sample").forEach(function(a){
+        a.addEventListener("click", function(e){
+          e.preventDefault();
+          img.src = a.getAttribute("data-full");
+          img.alt = a.querySelector("img").alt || "";
+          box.hidden = false;
+          document.body.style.overflow = "hidden";
+        });
+      });
+      box.addEventListener("click", function(e){ if (e.target !== img) close(); });
+      document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !box.hidden) close(); });
+    })();
+  </script>
 </body>
 </html>
