@@ -31,6 +31,7 @@
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;background:var(--bg)}
     body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    main{overflow-x:hidden}
     a{color:inherit;text-decoration:none}
     .wrap{width:min(100% - 2.5rem,var(--max));margin-inline:auto}
 
@@ -237,6 +238,29 @@
 
     .hdr-buy{display:none}
 
+
+    #testimonials{padding:1.85rem 0 0;overflow:hidden;text-align:left;width:100%}
+    .quotes-head{display:flex;align-items:baseline;justify-content:space-between;gap:.75rem 1.5rem;flex-wrap:wrap;margin-bottom:1rem}
+    .quotes-head h2{font-size:clamp(1.3rem,2.1vw,1.65rem);letter-spacing:-.03em;font-weight:700;line-height:1.15}
+    .quotes-head h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+    .rec-link{color:var(--ink-2);font-size:.88rem;font-weight:500;border-bottom:1px solid var(--line-2);padding-bottom:.12rem;transition:color .2s,border-color .2s;white-space:nowrap}
+    .rec-link:hover{color:var(--ink);border-color:var(--ink-2)}
+    .carousel{--c-gap:1rem;--c-show:3}
+    .carousel-viewport{overflow:hidden;container-type:inline-size;min-width:0}
+    .carousel-track{display:flex;gap:var(--c-gap);will-change:transform}
+    .quote{flex:0 0 calc((100cqi - (var(--c-show) - 1) * var(--c-gap)) / var(--c-show));width:calc((100cqi - (var(--c-show) - 1) * var(--c-gap)) / var(--c-show));display:flex;flex-direction:column;padding:.9rem 1rem 1rem;color:inherit;min-height:12.5rem;box-sizing:border-box}
+    .quote .qlabel{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:.5rem}
+    .quote blockquote{margin:0;flex:1;font-size:.86rem;line-height:1.5;color:var(--ink);font-weight:400}
+    .quote footer{margin-top:.8rem;padding-top:.7rem;border-top:1px solid var(--line)}
+    .quote footer b{display:block;font-size:.86rem;font-weight:600;letter-spacing:-.015em}
+    .quote footer span{display:block;font-size:.74rem;color:var(--ink-3);font-weight:500;margin-top:.1rem}
+    .carousel-controls{display:flex;align-items:center;justify-content:center;gap:.85rem;margin-top:.95rem}
+    .carousel-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);background:var(--glass);color:var(--ink);display:grid;place-items:center;cursor:pointer;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:background .18s ease,border-color .18s ease,transform .18s ease;flex:none}
+    .carousel-btn:hover{background:var(--glass-2);border-color:rgba(244,237,224,.35);transform:translateY(-1px)}
+    .carousel-btn svg{width:16px;height:16px}
+    .carousel-dots{display:flex;align-items:center;gap:.4rem}
+    .carousel-dots button{width:7px;height:7px;padding:0;border-radius:99px;border:1px solid var(--line-2);background:transparent;cursor:pointer;transition:width .2s ease,background .2s ease,border-color .2s ease}
+    .carousel-dots button[aria-current="true"]{width:16px;background:var(--ink);border-color:var(--ink)}
     @media (max-width:1000px){
       .packages{grid-template-columns:repeat(2,1fr)}
       .packages.secondary{grid-template-columns:repeat(2,1fr)}
@@ -246,12 +270,14 @@
       .samples{grid-template-columns:repeat(2,1fr)}
       .sample,.sample:nth-child(4),.sample:nth-child(5){grid-column:auto}
       .sample img{height:220px}
+      .carousel{--c-show:2}
     }
     @media (max-width:760px){
       .nav-links{display:none}
       .hdr-buy{display:inline-flex}
-      .hero{padding:3rem 0 1rem}
-      .hero h1{letter-spacing:-.05em}
+      .hero{padding:1.65rem 0 0}
+      .hero h1{letter-spacing:-.05em;margin:0.8rem auto 0.65rem}
+      .tagline{margin-bottom:0.9rem}
       .dash{height:auto;margin-top:2.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
       .dash .rocket{display:none}
       .pc{position:relative;inset:auto;width:auto;animation:none;padding:.9rem}
@@ -267,6 +293,15 @@
       .samples{display:flex;overflow-x:auto;gap:.75rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:.4rem}
       .sample,.sample:nth-child(4),.sample:nth-child(5){flex:0 0 min(82%,20.5rem);scroll-snap-align:start;grid-column:auto}
       .sample img{height:240px}
+      #testimonials{padding:.45rem 0 0}
+      .carousel{--c-show:1;--c-gap:.75rem}
+      .quote{min-height:0;padding:.75rem .85rem .8rem}
+      .quote blockquote{font-size:.8rem;line-height:1.45}
+      .quotes-head{margin-bottom:.5rem;gap:.25rem}
+      .quotes-head h2{font-size:1.35rem}
+      .rec-link{white-space:normal;font-size:.8rem}
+      .carousel-controls{margin-top:.4rem}
+      .mobile-stats{margin-top:1.35rem}
     }
     @media (max-width:560px){
       .wrap{width:min(100% - 1.75rem,var(--max))}
@@ -287,7 +322,10 @@
       background:rgba(16,27,51,.72);border:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 40px rgba(0,0,0,.45)}
     .sticky-buy span{font-size:.85rem;color:var(--ink-2);padding-left:.8rem}
     .sticky-buy span b{color:var(--ink)}
-    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+    @media (prefers-reduced-motion:reduce){
+      *{animation:none!important;transition:none!important}
+      .carousel-track{transition:none!important}
+    }
   </style>
 </head>
 <body>
@@ -329,6 +367,67 @@
           <a class="btn btn-coral" href="#packages">See packages <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn btn-glass" href="#questions">Ask a question</a>
         </div>
+    <section id="testimonials">
+        <div class="quotes-head">
+          <h2>What they <em>say</em>.</h2>
+          <a class="rec-link" href="https://www.linkedin.com/in/thomas-placzkowski/details/recommendations/" target="_blank" rel="noopener noreferrer">See all recommendations on LinkedIn</a>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel-viewport">
+            <div class="carousel-track">
+            <article class="glass quote">
+              <p class="qlabel">LinkedIn recommendation</p>
+              <blockquote>Tom went above and beyond in reviewing my resume and giving me thoughtful, detailed feedback… I’d highly recommend Tom to any engineering student or early-career engineer looking to break into aerospace.</blockquote>
+              <footer><b>Bhavya P.</b><span>Aerospace Engineering student</span></footer>
+            </article>
+            <article class="glass quote">
+              <p class="qlabel">LinkedIn recommendation</p>
+              <blockquote>Tom gave me a thoughtful, honest resume review and a call that taught me what really sets a strong candidate apart… I highly recommend Tom to anyone looking for career guidance.</blockquote>
+              <footer><b>Roger H.</b><span>Aerospace Engineering student</span></footer>
+            </article>
+            <article class="glass quote">
+              <p class="qlabel">LinkedIn recommendation</p>
+              <blockquote>Tom’s resume review insights and feedback were really helpful because I got to hear from an industry professional how the right wordings can make you stand out more…</blockquote>
+              <footer><b>Adeyemi A.</b><span>Mechanical &amp; Aerospace Engineering student</span></footer>
+            </article>
+            <article class="glass quote">
+              <p class="qlabel">LinkedIn recommendation</p>
+              <blockquote>Tom's resume review provided good advice on job alignment, action-focused wording, resume order, keywords, and ATS with reasoning behind each suggestion. Looking forward to applying to more systems engineering roles, thanks Tom!</blockquote>
+              <footer><b>Adrian M.</b><span>Aerospace Engineering student</span></footer>
+            </article>
+            <article class="glass quote">
+              <p class="qlabel">LinkedIn recommendation</p>
+              <blockquote>Gave me a wonderful resume review and valuable career insight!</blockquote>
+              <footer><b>Kevin F.</b><span>Associate Scientist</span></footer>
+            </article>
+            <article class="glass quote">
+              <p class="qlabel">From a LinkedIn message</p>
+              <blockquote>It’s clear that you put a great deal of thought and effort into the review… Your observations about making my hands-on experience more visible… are particularly helpful.</blockquote>
+              <footer><b>Shreyas</b><span>Aerospace Engineering student</span></footer>
+            </article>
+            <article class="glass quote">
+              <p class="qlabel">From a LinkedIn message</p>
+              <blockquote>Thank you so much for putting all of this together, especially on such short notice before the career fair. I really appreciate the detailed feedback and the research you did on the different companies and roles.</blockquote>
+              <footer><b>Alvaro</b><span>Aerospace Engineering student</span></footer>
+            </article>
+            </div>
+          </div>
+          <div class="carousel-controls">
+            <button type="button" class="carousel-btn" data-prev aria-label="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+            <div class="carousel-dots" role="group" aria-label="Testimonials">
+          <button type="button" aria-label="Go to testimonial 1" aria-current="true"></button>
+          <button type="button" aria-label="Go to testimonial 2"></button>
+          <button type="button" aria-label="Go to testimonial 3"></button>
+          <button type="button" aria-label="Go to testimonial 4"></button>
+          <button type="button" aria-label="Go to testimonial 5"></button>
+          <button type="button" aria-label="Go to testimonial 6"></button>
+          <button type="button" aria-label="Go to testimonial 7"></button>
+            </div>
+            <button type="button" class="carousel-btn" data-next aria-label="Next testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+          </div>
+        </div>
+    </section>
+
         <div class="mobile-stats" aria-hidden="true">
           <div><b>3</b><span>core offers</span></div>
           <div><b>$25</b><span>starting price</span></div>
@@ -512,6 +611,7 @@
       </div>
     </section>
 
+
     <section id="how">
       <div class="wrap">
         <div class="sec-head">
@@ -589,6 +689,143 @@
       box.addEventListener("click", function(e){ if (e.target !== img) close(); });
       document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !box.hidden) close(); });
     })();
+    (function(){
+      var root = document.querySelector("[data-carousel]");
+      if (!root) return;
+      var viewport = root.querySelector(".carousel-viewport");
+      var track = root.querySelector(".carousel-track");
+      var originals = Array.prototype.slice.call(track.children);
+      var dots = Array.prototype.slice.call(root.querySelectorAll(".carousel-dots button"));
+      var n = originals.length;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+      var show, index, timer, hovering = false, dragging = false, startX = 0, startY = 0, startTx = 0, lockedAxis = "";
+
+      function vis(){
+        if (window.matchMedia("(max-width:760px)").matches) return 1;
+        if (window.matchMedia("(max-width:1000px)").matches) return 2;
+        return 3;
+      }
+      function step(){
+        var card = track.querySelector(".quote");
+        var gap = parseFloat(getComputedStyle(track).gap) || 0;
+        return card.getBoundingClientRect().width + gap;
+      }
+      function real(){ return ((index - show) % n + n) % n; }
+      function apply(animate){
+        var useAnim = animate && !reduce.matches;
+        track.style.transition = useAnim ? "transform .55s ease" : "none";
+        track.style.transform = "translateX(" + (-index * step()) + "px)";
+      }
+      function updateUI(){
+        var r = real();
+        dots.forEach(function(b, i){ b.setAttribute("aria-current", i === r ? "true" : "false"); });
+        Array.prototype.forEach.call(track.children, function(el, i){
+          var on = i >= index && i < index + show;
+          el.setAttribute("aria-hidden", on ? "false" : "true");
+        });
+      }
+      function go(to, animate){
+        index = to;
+        apply(animate);
+        updateUI();
+      }
+      function next(){ go(index + 1, true); }
+      function prev(){ go(index - 1, true); }
+      function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+      function play(){
+        stop();
+        if (reduce.matches || hovering || dragging) return;
+        timer = setInterval(next, 5000);
+      }
+
+      function build(){
+        var r = (typeof index === "number") ? real() : 0;
+        show = vis();
+        track.querySelectorAll("[data-clone]").forEach(function(el){ el.remove(); });
+        originals.forEach(function(el){ track.appendChild(el); });
+        for (var i = 0; i < show; i++){
+          var end = originals[i].cloneNode(true);
+          end.setAttribute("data-clone", "end");
+          end.setAttribute("aria-hidden", "true");
+          track.appendChild(end);
+        }
+        for (var j = show; j > 0; j--){
+          var start = originals[n - j].cloneNode(true);
+          start.setAttribute("data-clone", "start");
+          start.setAttribute("aria-hidden", "true");
+          track.insertBefore(start, track.firstChild);
+        }
+        index = show + (r || 0);
+        apply(false);
+        updateUI();
+      }
+
+      track.addEventListener("transitionend", function(e){
+        if (e.target !== track) return;
+        if (index >= show + n) go(index - n, false);
+        else if (index < show) go(index + n, false);
+      });
+
+      root.querySelector("[data-next]").addEventListener("click", function(){ next(); play(); });
+      root.querySelector("[data-prev]").addEventListener("click", function(){ prev(); play(); });
+      dots.forEach(function(b, i){
+        b.addEventListener("click", function(){ go(show + i, true); play(); });
+      });
+
+      root.addEventListener("mouseenter", function(){ hovering = true; stop(); });
+      root.addEventListener("mouseleave", function(){ hovering = false; play(); });
+      root.addEventListener("focusin", function(){ hovering = true; stop(); });
+      root.addEventListener("focusout", function(e){
+        if (!root.contains(e.relatedTarget)) { hovering = false; play(); }
+      });
+
+      viewport.addEventListener("touchstart", function(e){
+        if (!e.touches[0]) return;
+        dragging = false;
+        lockedAxis = "";
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+        startTx = -index * step();
+        stop();
+      }, {passive:true});
+      viewport.addEventListener("touchmove", function(e){
+        if (!e.touches[0]) return;
+        var dx = e.touches[0].clientX - startX;
+        var dy = e.touches[0].clientY - startY;
+        if (!lockedAxis) {
+          if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+          lockedAxis = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
+        }
+        if (lockedAxis !== "x") return;
+        dragging = true;
+        track.style.transition = "none";
+        track.style.transform = "translateX(" + (startTx + dx) + "px)";
+      }, {passive:true});
+      viewport.addEventListener("touchend", function(e){
+        if (lockedAxis !== "x") { play(); dragging = false; lockedAxis = ""; return; }
+        var dx = (e.changedTouches[0] ? e.changedTouches[0].clientX : startX) - startX;
+        dragging = false;
+        lockedAxis = "";
+        if (dx < -40) next();
+        else if (dx > 40) prev();
+        else go(index, true);
+        play();
+      });
+
+      window.addEventListener("resize", function(){
+        var nextShow = vis();
+        if (nextShow !== show) build();
+        else apply(false);
+      });
+      document.addEventListener("visibilitychange", function(){
+        if (document.hidden) stop(); else play();
+      });
+      if (reduce.addEventListener) reduce.addEventListener("change", function(){ apply(false); play(); });
+
+      build();
+      play();
+    })();
+
   </script>
 </body>
 </html>
