@@ -179,10 +179,14 @@
     .examples-block{margin-top:4.2rem}
     .examples-block .sec-head{margin-bottom:1.4rem}
     .examples-block .section-sub{max-width:44rem}
-    .samples{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .samples{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+    .sample{grid-column:span 2}
+    .sample:nth-child(4){grid-column:2 / span 2}
+    .sample:nth-child(5){grid-column:4 / span 2}
     .sample{display:flex;flex-direction:column;padding:0;overflow:hidden;color:inherit;cursor:zoom-in;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
     .sample:hover{transform:translateY(-5px);border-color:var(--line-2)}
-    .sample img{width:100%;height:260px;object-fit:cover;object-position:top center;display:block;background:#fff}
+    .sample img{width:100%;height:220px;object-fit:cover;object-position:top center;display:block;background:#fff}
+    .sample img.plan{object-fit:contain;object-position:center}
     .sample img.cover{object-position:center 14%}
     .sample .cap{padding:.9rem 1.05rem 1.05rem;font-size:.92rem;font-weight:600;letter-spacing:-.015em}
     .sample .cap span{display:block;margin-top:.2rem;font-size:.78rem;font-weight:500;color:var(--ink-3);letter-spacing:0}
@@ -239,6 +243,8 @@
       .strip{grid-template-columns:repeat(2,1fr)}
       .side-stat{display:none}
       .pc-kit{left:0}.pc-ship{right:0}
+      .samples{grid-template-columns:repeat(2,1fr)}
+      .sample,.sample:nth-child(4),.sample:nth-child(5){grid-column:auto}
       .sample img{height:220px}
     }
     @media (max-width:760px){
@@ -259,7 +265,7 @@
       section{padding:4rem 0}
       .mobile-stats{display:flex!important}
       .samples{display:flex;overflow-x:auto;gap:.75rem;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:.4rem}
-      .sample{flex:0 0 min(82%,20.5rem);scroll-snap-align:start}
+      .sample,.sample:nth-child(4),.sample:nth-child(5){flex:0 0 min(82%,20.5rem);scroll-snap-align:start;grid-column:auto}
       .sample img{height:240px}
     }
     @media (max-width:560px){
@@ -410,6 +416,7 @@
             <hr>
             <ul>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Everything in the Resume Review</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A custom plan to get you offers: target roles and companies, ranked by fit</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A cover letter built from a voice memo or story of yours</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A LinkedIn rewrite</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>One round of revisions within 14 days</li>
@@ -439,7 +446,7 @@
             <p class="note">Inquiry — no checkout. DM “COACHING”.</p>
             <hr>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Positioning, applications, and interview prep</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A detailed, custom plan to get you offers, built around your target roles</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>A weekly call plus text support</li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>Until you land the role</li>
             </ul>
@@ -476,7 +483,7 @@
             <div>
               <span class="kicker">Examples</span>
               <h2 class="section-title">What you actually <em>get</em>.</h2>
-              <p class="section-sub">A delivered Full Application Package, with identifying details blacked out.</p>
+              <p class="section-sub">Real delivered work, with identifying details blacked out.</p>
             </div>
           </div>
           <div class="samples">
@@ -491,6 +498,14 @@
             <a class="glass sample" href="gallery/fap-linkedin-banner.png" data-full="gallery/fap-linkedin-banner.png">
               <img src="gallery/fap-linkedin-banner.png" alt="Redacted LinkedIn review page showing before and after banners." width="1400" height="1811">
               <div class="cap">LinkedIn banner<span>Shown in place on the profile</span></div>
+            </a>
+            <a class="glass sample" href="gallery/fap-offer-plan.png" data-full="gallery/fap-offer-plan.png">
+              <img class="plan" src="gallery/fap-offer-plan.png" alt="Redacted matching openings page from a delivered Full Application Package, showing target roles and companies." width="1600" height="1236">
+              <div class="cap">Your plan to get offers<span>Target roles and companies, ranked by fit</span></div>
+            </a>
+            <a class="glass sample" href="gallery/1on1-plan.png" data-full="gallery/1on1-plan.png">
+              <img src="gallery/1on1-plan.png" alt="Redacted 1:1 coaching plan showing a week-by-week timeline and how the work is split." width="1400" height="2422">
+              <div class="cap">1:1 coaching plan<span>Built from your situation, week by week.</span></div>
             </a>
           </div>
         </div>
